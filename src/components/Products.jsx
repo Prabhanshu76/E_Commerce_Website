@@ -59,44 +59,84 @@ const Products = () => {
     setLoading(false);
   };
 
-  const ShowProducts = () => {
-    return (
-      <>
-        <div className="buttons text-center py-5">
-          <button className="btn btn-outline-dark btn-sm m-2" onClick={showAllProducts}>
-            All
-          </button>
-          {categories && categories.map((category, index) => (
-            <button key={index} className="btn btn-outline-dark btn-sm m-2" onClick={() => filterByCategory(category)}>
-              {category}
-            </button>
-          ))}
-        </div>
+  const calculateDiscountedPrice = (originalPrice, discountPercentage) => {
+    const discountAmount = (originalPrice * discountPercentage) / 100;
+    return (originalPrice - discountAmount).toFixed(2);
+};
 
-        {filter.map((product) => (
-          <div id={product.id} key={product.id} className="col-md-4 col-sm-6 col-xs-8 col-12 mb-4">
-            <Link to={"/product/" + product.id} className="product-link"> {/* Link to product page */}
-              <div className="card text-center h-100" key={product.id}>
-                <img className="card-img-top p-3" src={product.thumbnail} alt="Card" height={300} />
-                <div className="card-body">
-                  <h5 className="card-title">{product.title.substring(0, 12)}...</h5>
-                  <p className="card-text">{product.description.substring(0, 90)}...</p>
-                </div>
-                <ul className="list-group list-group-flush">
-                  <li className="list-group-item lead">$ {product.price}</li>
-                </ul>
-                <div className="card-body">
-                  <button className="btn btn-dark m-1" onClick={() => addProduct(product)}>
-                    Add to Cart
+const renderStars = (rating) => {
+    const fullStars = Math.floor(rating);
+    const halfStar = rating % 1 !== 0;
+    const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+    const starElements = [];
+
+    for (let i = 0; i < fullStars; i++) {
+        starElements.push(<i className="fa fa-star" key={i}></i>);
+    }
+
+    if (halfStar) {
+        starElements.push(<i className="fa fa-star-half-o" key="half"></i>);
+    }
+
+    for (let i = 0; i < emptyStars; i++) {
+        starElements.push(<i className="fa fa-star-o" key={`empty-${i}`}></i>);
+    }
+
+    return starElements;
+};
+
+
+const ShowProducts = () => {
+  return (
+      <>
+          <div className="buttons text-center py-5">
+              <button className="btn btn-outline-dark btn-sm m-2" onClick={showAllProducts}>
+                  All
+              </button>
+              {categories && categories.map((category, index) => (
+                  <button key={index} className="btn btn-outline-dark btn-sm m-2" onClick={() => filterByCategory(category)}>
+                      {category}
                   </button>
-                </div>
-              </div>
-            </Link>
+              ))}
           </div>
-        ))}
+
+          {filter.map((product) => (
+              <div id={product.id} key={product.id} className="col-md-4 col-sm-6 col-xs-8 col-12 mb-4">
+                  <Link to={"/product/" + product.id} className="product-link"> {/* Link to product page */}
+                      <div className="card text-center h-100" key={product.id}>
+                          <img className="card-img-top p-3" src={product.thumbnail} alt="Card" height={300} />
+                          <div className="card-body">
+                              <h5 className="card-title">{product.title.substring(0, 40)}</h5>
+                          </div>
+                          <ul className="list-group list-group-flush">
+                              <li className="list-group-item">
+                                  <span className="lead">
+                                      <span className="text-success mr-2">${calculateDiscountedPrice(product.price, product.discountPercentage)}</span>
+                                      <s className="text-muted small "><b>${product.price}</b></s>
+                                      <span className="text-success ml-2 small">({product.discountPercentage}% off)</span>
+                                  </span>
+                              </li>
+                              <li className="list-group-item">
+                                  <div className="rating">
+                                      {renderStars(product.rating)}
+                                  </div>
+                              </li>
+                          </ul>
+                          <div className="card-body">
+                              <button className="btn btn-dark m-1" onClick={() => addProduct(product)}>
+                                  Add to Cart
+                              </button>
+                          </div>
+                      </div>
+                  </Link>
+              </div>
+          ))}
       </>
-    );
-  };
+  );
+};
+
+ 
 
   const Loading = () => {
     return (
