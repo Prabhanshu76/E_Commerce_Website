@@ -25,3 +25,8 @@ export const getProductsByCategory = async (category) => {
   const jsonData = await response.json();
   return jsonData.products;
 };
+export const getProductById = async (productId) => {
+  const response = await fetch(`https://dummyjson.com/products/${productId}`);
+  const productData = await response.json();
+  return productData;
+};

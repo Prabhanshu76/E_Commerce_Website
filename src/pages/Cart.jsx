@@ -23,6 +23,11 @@ const Cart = () => {
     );
   };
 
+  const calculateDiscountedPrice = (originalPrice, discountPercentage) => {
+    const discountAmount = (originalPrice * discountPercentage) / 100;
+    return (originalPrice - discountAmount).toFixed(2);
+  };
+
   const addItem = (product) => {
     dispatch(addCart(product));
   };
@@ -62,7 +67,7 @@ const Cart = () => {
                                 data-mdb-ripple-color="light"
                               >
                                 <img
-                                  src={item.image}
+                                  src={item.thumbnail}
                                   // className="w-100"
                                   alt={item.title}
                                   width={100}
@@ -129,7 +134,8 @@ const Cart = () => {
                   <div className="card-body">
                     <ul className="list-group list-group-flush">
                       <li className="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
-                        Products ({totalItems})<span>${Math.round(subtotal)}</span>
+                        Products ({totalItems})
+                        <span>${Math.round(subtotal)}</span>
                       </li>
                       <li className="list-group-item d-flex justify-content-between align-items-center px-0">
                         Shipping

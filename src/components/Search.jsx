@@ -1,5 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Container, SearchInput, IconRightArrow, IconMagnifyingGlass } from "./styles";
+import {
+  Container,
+  SearchInput,
+  IconRightArrow,
+  IconMagnifyingGlass,
+} from "./styles";
 
 function Search({ filterProduct }) {
   const targetRef = useRef(null);
@@ -30,7 +35,7 @@ function Search({ filterProduct }) {
         onChange={(e) => setSearchTerm(e.target.value)}
         showSearchInput={isHovered || isFocused}
       />
-      {isHovered || isFocused ? <IconRightArrow /> : <IconMagnifyingGlass />}
+      {isHovered || isFocused ? "" : <IconMagnifyingGlass />}
     </Container>
   );
 }

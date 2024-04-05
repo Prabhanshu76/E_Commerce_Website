@@ -4,13 +4,13 @@ import ArrowRightIcon from "./icons/arrowRight";
 
 export const Container = styled.div`
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 45px;
+  height: 45px;
   box-sizing: border-box;
   border-radius: 50px;
-  border: 4px solid #393e46;
+  border: "4px solid #ffffff";
   padding: 5px;
-  background: #222831;
+  background: #ffffff;
   transition: all 0.5s;
 
   display: flex;
@@ -21,13 +21,13 @@ export const Container = styled.div`
   ${({ hover }) =>
     hover &&
     css`
-      width: 50%;
+      width: 20%;
       -webkit-box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.74);
       box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.74);
-      border: 4px solid #00adb5;
+      border: 4px solid #ffffff;
 
       @media (min-width: 768px) {
-        width: 80%;
+        width: 30%;
       }
     `}
 `;
@@ -37,7 +37,7 @@ export const SearchInput = styled.input`
   top: 0;
   left: 0;
   width: 100%;
-  height: 42px;
+  height: 40px;
   line-height: 30px;
   outline: 0;
   border: 0;
@@ -66,7 +66,7 @@ const fadeIn = keyframes`
 const IconCommonCss = css`
   height: 1.25rem;
   width: 1.25rem;
-  fill: #00adb5;
+  fill: #1b2e3c;
   z-index: 10;
   animation: ${fadeIn} 1s linear;
 `;
