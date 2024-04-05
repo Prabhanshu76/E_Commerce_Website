@@ -126,7 +126,7 @@ const Product = () => {
               </Carousel>
             </div>
             <div className="col-md-6 col-md-5 py-5">
-              <h4 className="text-uppercase text" style={{ color: "#1B2E3C" }}>
+              <h4 className="text-uppercase text" style={{ color: "#80868a" }}>
                 {product.category}
               </h4>
 
@@ -199,7 +199,17 @@ const Product = () => {
                   <div
                     key={item.id}
                     className="card mx-4 text-center"
-                    style={{ background: "white" }}
+                    style={{
+                      background: "white",
+                      transition: "transform 0.3s", // Add transition for smooth animation
+                      transformOrigin: "center",
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.transform = "scale(1.04)";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.transform = "scale(1)";
+                    }}
                   >
                     <img
                       className="card-img-top p-3"

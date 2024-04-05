@@ -140,7 +140,17 @@ const Products = () => {
             <div
               className="card text-center h-100"
               key={product.id}
-              style={{ background: "white" }}
+              style={{
+                background: "white",
+                transition: "transform 0.3s", // Add transition for smooth animation
+                transformOrigin: "center",
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.transform = "scale(1.04)";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.transform = "scale(1)";
+              }}
             >
               <Link
                 to={"/product/" + product.id}

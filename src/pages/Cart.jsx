@@ -110,7 +110,10 @@ const Cart = () => {
                                 </button>
                               </div>
 
-                              <p className="text-start text-md-center">
+                              <p
+                                className="text-start text-md-center"
+                                style={{ marginLeft: "-20%" }}
+                              >
                                 <strong>
                                   <span className="text-muted">{item.qty}</span>{" "}
                                   x ${item.price}
@@ -171,7 +174,9 @@ const Cart = () => {
     <>
       <Navbar />
       <div className="container my-3 py-3">
-        <h1 className="text-center">Cart</h1>
+        <h1 className="text-center" style={{ color: "white" }}>
+          Cart
+        </h1>
         <hr />
         {state.length > 0 ? <ShowCart /> : <EmptyCart />}
       </div>
