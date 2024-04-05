@@ -213,14 +213,7 @@ const Products = () => {
                   </li>
                 </ul>
               </Link>
-              <div className="card-body">
-                <button
-                  className="btn btn-dark m-1"
-                  onClick={() => addProduct(product)}
-                >
-                  Add to Cart
-                </button>
-              </div>
+              <div className="card-body"></div>
             </div>
           </div>
         ))}

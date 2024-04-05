@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import logoImage from "../assets/logo.png"; // Import the image
+import logoImage from "../assets/logo.png";
 
 const Navbar = () => {
   const state = useSelector((state) => state.handleCart);
