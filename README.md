@@ -1,5 +1,4 @@
-# E_Commerce_Website
-
+# E-Commerce Website
 
 ## Prerequisites
 
@@ -13,13 +12,13 @@ Make sure you have the following installed:
 1. Clone the repository:
 
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/Prabhanshu76/E_Commerce_Website.git
     ```
 
 2. Navigate into the project directory:
 
     ```bash
-    cd <project_directory>
+    cd E_Commerce_Website
     ```
 
 3. Install dependencies:
