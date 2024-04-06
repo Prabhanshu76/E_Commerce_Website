@@ -11,12 +11,7 @@ import {
   Home,
   Product,
   Products,
-  AboutPage,
-  ContactPage,
   Cart,
-  Login,
-  Register,
-  Checkout,
   PageNotFound,
 } from "./pages";
 import SplashScreen from "./components/SplashScreen"; // Import the splash screen component
