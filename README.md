@@ -1,5 +1,8 @@
 # E-Commerce Website
 
+## View Live Demo
+Explore the live website at: [here](https://admirable-manatee-1e8371.netlify.app/)
+
 ## Prerequisites
 
 Make sure you have the following installed:
